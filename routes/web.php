@@ -14,7 +14,9 @@ use App\Http\Controllers\ArticleController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $var = 1313;
+
+    return view('welcome', compact('var'));
 });
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
