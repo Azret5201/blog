@@ -27,6 +27,9 @@ Route::get('/articles/edit/{article}', [ArticleController::class, 'edit'])->name
 Route::put('/articles/update/{article}', [ArticleController::class, 'update'])->name('articles.update');
 Route::delete('/articles/delete/{article}', [ArticleController::class, 'destroy'])->name('articles.delete');
 
+Route::get('/index', [\App\Http\Controllers\FaceController::class, 'index']);
+Route::post('/index1', [\App\Http\Controllers\FaceController::class, 'index1'])->name('post.form');
+
 
 
 

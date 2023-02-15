@@ -15,10 +15,11 @@
     @foreach($articles as $article)
         <a href="{{ route('articles.show', $article) }}">
             <p>
+{{--                {{dd($article->author_id)}}--}}
                 <span class="ms-5">{{ $article->title }}</span>
-                <span class="ms-5">{{ $article->content }}</span>
+{{--                <span class="ms-5">{{ $article->content }}</span>--}}
                 <span class="ms-5">{{ $article->author_id }}</span>
-                <span class="ms-5">{{ $article->author }}</span>
+                <span class="ms-5">{{ $article->author->name }}</span>
             </p>
         </a>
     @endforeach
