@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Author;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -15,8 +16,9 @@ class ArticleController extends Controller
     public function index() //Данный метод отвечает за вывод списка статьей
     {
         $articles = Article::all();
+        $authors = Author::all();
 
-        return view('articles.index', compact('articles'));
+        return view('articles.index', compact(['articles', 'authors']));
     }
 
     /**

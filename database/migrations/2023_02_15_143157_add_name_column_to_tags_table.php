@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticleTagTable extends Migration
+class AddNameColumnToTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateArticleTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('article_tag', function (Blueprint $table) {
-            $table->id();
-            $table->integer('article_id');
-            $table->integer('tag_id');
-            $table->timestamps();
+        Schema::table('tags', function (Blueprint $table) {
+            $table->string('name');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateArticleTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article_tag');
+        Schema::table('tags', function (Blueprint $table) {
+            //
+        });
     }
 }

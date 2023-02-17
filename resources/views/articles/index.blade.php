@@ -23,6 +23,42 @@
             </p>
         </a>
     @endforeach
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Заголовок</th>
+                    <th scope="col">Статья</th>
+                    <th scope="col">Автор_id</th>
+                    <th scope="col">ФИО автора</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach($articles as $article)
+                <tr>
+                    <th scope="row">{{ $article->title }}</th>
+                    <td>{{ $article->content }}</td>
+                    <td>{{ $article->author_id }}</td>
+                    <td>{{ $article->author->name }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+
+        @foreach($authors as $author)
+            <p>{{ $author->name}}
+                @foreach($author->articles as $article)
+                    <span class="ps-5">{{ $article->title }}</span>
+                @endforeach
+            </p>
+        @endforeach
+
+
+        <br>
+        <br>
+        <br>
+
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
